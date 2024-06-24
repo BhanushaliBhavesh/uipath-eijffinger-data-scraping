@@ -1,0 +1,13 @@
+﻿{
+  "Name": "page scrooll",
+  "Type": "Element",
+  "TaxonomyType": "Element",
+  "Id": "4f1nNWMQZEyGLs-XgNY6TA",
+  "Reference": "D0nISARV7kG7gVzbwvUc9w/4f1nNWMQZEyGLs-XgNY6TA",
+  "ParentRef": "D0nISARV7kG7gVzbwvUc9w/JmcUQM2IsUClAg8-KqTjUQ",
+  "Created": "2024-06-22T15:14:26.7209628Z",
+  "Updated": "2024-06-22T15:14:26.7209628Z",
+  "CreatedBy": [
+    "UiPath.Platform, Version=24.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
