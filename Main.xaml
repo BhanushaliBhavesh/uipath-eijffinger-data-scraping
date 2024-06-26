@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="843.2,5388.8" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="843.2,7074.4" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -115,6 +115,8 @@
       <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -122,49 +124,159 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="784,5324" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="784,7009.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="TempDt" />
-      <Variable x:TypeArguments="sd:DataTable" Name="MainDt" />
+      <Variable x:TypeArguments="sd:DataTable" Default="[New System.Data.DataTable]" Name="dt_Temp" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Main" />
       <Variable x:TypeArguments="sd:DataColumn[]" Default="[{New System.Data.DataColumn(&quot;Price&quot;), New System.Data.DataColumn(&quot;Color&quot;), New System.Data.DataColumn(&quot;Size&quot;), New System.Data.DataColumn(&quot;Design&quot;), New System.Data.DataColumn(&quot;DeliveredPer&quot;), New System.Data.DataColumn(&quot;Style&quot;), New System.Data.DataColumn(&quot;Toplayer&quot;), New System.Data.DataColumn(&quot;Collection&quot;), New System.Data.DataColumn(&quot;OtherColor&quot;), New System.Data.DataColumn(&quot;SubsetMaterial&quot;), New System.Data.DataColumn(&quot;Advice&quot;), New System.Data.DataColumn(&quot;Hight&quot;), New System.Data.DataColumn(&quot;ImgPath&quot;)}]" Name="MainArrc" />
       <Variable x:TypeArguments="sd:DataColumn[]" Default="[{New System.Data.DataColumn(&quot;Price&quot;), New System.Data.DataColumn(&quot;Color&quot;), New System.Data.DataColumn(&quot;Size&quot;), New System.Data.DataColumn(&quot;Design&quot;), New System.Data.DataColumn(&quot;DeliveredPer&quot;), New System.Data.DataColumn(&quot;Style&quot;), New System.Data.DataColumn(&quot;Toplayer&quot;), New System.Data.DataColumn(&quot;Collection&quot;), New System.Data.DataColumn(&quot;OtherColor&quot;), New System.Data.DataColumn(&quot;SubsetMaterial&quot;), New System.Data.DataColumn(&quot;Advice&quot;), New System.Data.DataColumn(&quot;Hight&quot;), New System.Data.DataColumn(&quot;ImgPath&quot;)}]" Name="TempArrc" />
+      <Variable x:TypeArguments="x:Object" Name="result">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:String x:Key="SourceIdRef">InvokeMethod_4</x:String>
+            <x:String x:Key="SourcePropertyName">Result</x:String>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </Variable>
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:BuildDataTable DataTable="[MainDt]" DisplayName="Build MainDataTable" sap:VirtualizedContainerService.HintSize="721.6,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Url&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ImgUrl&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:BuildDataTable DataTable="[dt_Main]" DisplayName="Build MainDataTable" sap:VirtualizedContainerService.HintSize="721.6,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Url&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;ImgUrl&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
     <InvokeMethod DisplayName="Create Columns Main Data Table" sap:VirtualizedContainerService.HintSize="721.6,166.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_5" MethodName="AddRange">
       <InvokeMethod.TargetObject>
-        <InArgument x:TypeArguments="sd:DataColumnCollection">[MainDt.Columns]</InArgument>
+        <InArgument x:TypeArguments="sd:DataColumnCollection">[dt_Main.Columns]</InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="sd:DataColumn[]">[MainArrc]</InArgument>
     </InvokeMethod>
     <InvokeMethod DisplayName="Create Columns for Temp Table" sap:VirtualizedContainerService.HintSize="721.6,166.4" sap2010:WorkflowViewState.IdRef="InvokeMethod_4" MethodName="AddRange">
+      <InvokeMethod.Result>
+        <OutArgument x:TypeArguments="x:Object">[result]</OutArgument>
+      </InvokeMethod.Result>
       <InvokeMethod.TargetObject>
-        <InArgument x:TypeArguments="sd:DataColumnCollection">[TempDt.Columns]</InArgument>
+        <InArgument x:TypeArguments="sd:DataColumnCollection">[dt_Temp.Columns]</InArgument>
       </InvokeMethod.TargetObject>
       <InArgument x:TypeArguments="sd:DataColumn[]">[TempArrc]</InArgument>
     </InvokeMethod>
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open Browser" sap:VirtualizedContainerService.HintSize="721.6,4810.4" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="00158659-147e-4b59-af42-be53a80251f2" Version="V2">
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Open the Website" sap:VirtualizedContainerService.HintSize="721.6,6496" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="00158659-147e-4b59-af42-be53a80251f2" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,4570.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="688,6256" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:Int32" Name="Index" />
-              <Variable x:TypeArguments="x:String" Name="NextUrl" />
               <Variable x:TypeArguments="x:Int32" Name="DoWhileIndex" />
+              <Variable x:TypeArguments="x:Boolean" Name="IsPopUpFound" />
+              <Variable x:TypeArguments="x:Boolean" Name="IsCookiesFound" />
             </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:InterruptibleDoWhile Condition="[DoWhileIndex &lt; 3]" CurrentIndex="[DoWhileIndex]" DisplayName="Scrape Subpage Details with Pagination" sap:VirtualizedContainerService.HintSize="625.6,4221.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_3">
+            <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap:VirtualizedContainerService.HintSize="625.6,56.8" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+            <uix:NGetAttributeGeneric x:TypeArguments="x:Boolean" Attribute="relativeVisibility" DisplayName="Check for Language Pop-up" sap:VirtualizedContainerService.HintSize="625.6,240" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_3" Result="[IsPopUpFound]" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" Version="V3">
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.eijffinger.com/nl-NL/behang?pagenumber=1" CVScreenId="6deee23b-1fdc-4bb8-a665-6eb1acd9ed02" CvElementArea="804, 777, 329, 58" CvTextArea="923, 796, 91, 21" CvTextArgument="Bevestigen" CvType="Button" DesignTimeRectangle="807, 778, 325, 55" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Bevestigen' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Bevestigen' class='Button Button--default js-language-country-submit' tag='BUTTON' type='button' check:innerText='Bevestigen' /&gt;" Guid="c3cc6593-5ae1-462c-b7a2-0dec4e723411" InformativeScreenshot="c3f59401d3d828c3bb99c3d6bbad4c05.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                      <uix:Target CVScreenId="6deee23b-1fdc-4bb8-a665-6eb1acd9ed02" CvTextArea="805, 538, 109, 18" CvTextArgument="Kies een land" CvType="Text" DesignTimeRectangle="807, 535, 325, 28" ElementType="Text" FullSelectorArgument="&lt;webctrl class='FlyoutLocalizationPicker-select-title' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='FlyoutLocalizationPicker-select-title' tag='DIV' type='' aaname='Kies een land' check:innerText='Kies een land' /&gt;" Guid="11b0a442-b6b3-400d-9018-254c3135fc41" SearchSteps="FuzzySelector, CV" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <uix:NGetAttributeGeneric x:TypeArguments="x:Boolean" Attribute="relativeVisibility" DisplayName="Check for Cookies" sap:VirtualizedContainerService.HintSize="625.6,240" sap2010:WorkflowViewState.IdRef="NGetAttributeGeneric`1_5" Result="[IsCookiesFound]" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" Version="V3">
+              <uix:NGetAttributeGeneric.Target>
+                <uix:TargetAnchorable BrowserURL="https://www.eijffinger.com/nl-nl/behang?pagenumber=1" DesignTimeRectangle="9, 916, 1899, 113" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div' idx='4' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl type='' class='CookieBar js-CookieBar' tag='DIV' aaname='      ' /&gt;" Guid="297fb321-3c28-48cc-911f-5c89e6ebcfd5" InformativeScreenshot="0c48fda3658564ac1b1da249dccbdf83.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" />
+              </uix:NGetAttributeGeneric.Target>
+            </uix:NGetAttributeGeneric>
+            <If Condition="[IsPopUpFound=True]" DisplayName="If Language Popup Found" sap:VirtualizedContainerService.HintSize="625.6,568" sap2010:WorkflowViewState.IdRef="If_2">
+              <If.Then>
+                <Sequence DisplayName="Then Handle Language Popup" sap:VirtualizedContainerService.HintSize="416,305.6" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Bevestigen'" sap:VirtualizedContainerService.HintSize="353.6,216.8" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.eijffinger.com/nl-NL/behang?pagenumber=1" CVScreenId="94b57c04-ca3b-47bd-81cd-0bfceb9b3d43" CvElementArea="804, 777, 329, 58" CvTextArea="923, 796, 91, 21" CvTextArgument="Bevestigen" CvType="Button" DesignTimeRectangle="804, 776, 329, 60" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname='Bevestigen' css-selector='body&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;header&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Bevestigen' class='Button Button--default js-language-country-submit' tag='BUTTON' type='button' check:innerText='Bevestigen' /&gt;" Guid="885b6f0d-66b6-44e2-9496-838bf96a8315" InformativeScreenshot="e9ac259ad8f51017955212ba92ff154f.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="451.2,183.2" sap2010:WorkflowViewState.IdRef="CommentOut_6">
+                  <ui:CommentOut.Body>
+                    <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </ui:CommentOut.Body>
+                </ui:CommentOut>
+              </If.Else>
+            </If>
+            <If Condition="[IsCookiesFound = True]" DisplayName="If Cookies Found" sap:VirtualizedContainerService.HintSize="625.6,580.8" sap2010:WorkflowViewState.IdRef="If_3">
+              <If.Then>
+                <Sequence DisplayName="Then Handle Cookies" sap:VirtualizedContainerService.HintSize="416,305.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sluiten'" sap:VirtualizedContainerService.HintSize="353.6,216.8" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" Version="V3">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable BrowserURL="https://www.eijffinger.com/nl-nl/behang?pagenumber=1" CVScreenId="24a9e2f1-fc30-4b41-a300-c3681a9dc4e1" CvElementArea="1630, 943, 117, 61" CvTextArea="1670, 962, 62, 17" CvTextArgument="Sluiten" CvType="Button" DesignTimeRectangle="1633, 945, 113, 56" DesignTimeScaleFactor="1.25" ElementType="Button" FullSelectorArgument="&lt;webctrl aaname=' Sluiten' tag='BUTTON' type='button' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname=' Sluiten' tag='BUTTON' type='button' class='Button Button--primary js-CookieBar-button' check:innerText='Sluiten' /&gt;" Guid="37fa8f93-8d8e-45de-a63a-59df3e07cce8" InformativeScreenshot="69d7e36aef5816eeebe7504ed504f823.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                            <uix:Target CVScreenId="24a9e2f1-fc30-4b41-a300-c3681a9dc4e1" CvElementArea="1630, 943, 117, 61" CvTextArea="1670, 962, 62, 17" CvTextArgument="Sluiten" CvType="Button" DesignTimeRectangle="1674, 963, 58, 18" ElementType="Text" FullSelectorArgument="&lt;webctrl aaname='Sluiten' tag='SPAN' /&gt;" FuzzySelectorArgument="&lt;webctrl aaname='Sluiten' tag='SPAN' type='' class='' check:innerText='Sluiten' /&gt;" Guid="20caaed3-27f3-4da3-b06f-126708a323bc" SearchSteps="FuzzySelector, CV" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                    <uix:NClick.VerifyOptions>
+                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                        <uix:VerifyExecutionOptions.Retry>
+                          <InArgument x:TypeArguments="x:Boolean" />
+                        </uix:VerifyExecutionOptions.Retry>
+                        <uix:VerifyExecutionOptions.Timeout>
+                          <InArgument x:TypeArguments="x:Double" />
+                        </uix:VerifyExecutionOptions.Timeout>
+                      </uix:VerifyExecutionOptions>
+                    </uix:NClick.VerifyOptions>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+              <If.Else>
+                <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,104.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </Sequence>
+              </If.Else>
+            </If>
+            <ui:InterruptibleDoWhile Condition="[DoWhileIndex &lt; 3]" CurrentIndex="[DoWhileIndex]" DisplayName="Scrape Subpage Details with Pagination" sap:VirtualizedContainerService.HintSize="625.6,4221.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
               <ui:InterruptibleDoWhile.Body>
                 <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="592,4075.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <sap:WorkflowViewStateService.ViewState>
@@ -172,13 +284,13 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Scroll Down for Data Fetch" sap:VirtualizedContainerService.HintSize="529.6,168.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="25" Version="V3" />
-                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[TempDt]" DisplayName="Extract Table Data (URLs, Img URLs, Names)" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='ImgUrl'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column1' attr='href' name2='Column4' attr2='src'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='picture' idx='1' /&gt;&lt;webctrl tag='img' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl tag='font' idx='1' /&gt;&lt;webctrl tag='font' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="529.6,189.6" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" Version="V3">
+                  <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Scroll Down Main Page for Data Fetch" sap:VirtualizedContainerService.HintSize="529.6,168.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_1" InteractionMode="HardwareEvents" MovementUnits="25" Version="V3" />
+                  <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_Temp]" DisplayName="Extract Table Data (URLs, Img URLs, Names)" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column1' Name='Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='ImgUrl'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;true&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract&gt;&lt;row exact='1'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;/row&gt;&lt;column exact='1' name='Column1' attr='href' name2='Column4' attr2='src'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='picture' idx='1' /&gt;&lt;webctrl tag='img' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column0' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='span' idx='1' /&gt;&lt;/column&gt;&lt;column exact='1' name='Column2' attr='fulltext'&gt;&lt;webctrl tag='div' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='2' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='div' idx='1' /&gt;&lt;webctrl tag='h3' idx='1' /&gt;&lt;webctrl tag='a' idx='1' /&gt;&lt;webctrl tag='span' idx='2' /&gt;&lt;webctrl tag='font' idx='1' /&gt;&lt;webctrl tag='font' idx='1' /&gt;&lt;/column&gt;&lt;/extract&gt;" sap:VirtualizedContainerService.HintSize="529.6,189.6" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" Version="V3">
                     <uix:NExtractData.Target>
                       <uix:TargetAnchorable BrowserURL="https://www.eijffinger.com/nl-NL/behang" ContentHash="kAXEeXeoY0CxizNNVoDCKg" DesignTimeRectangle="415, 812, 1437, 3251" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl class='ProductGrid' tag='DIV' /&gt;" Guid="b60a1d99-2f2f-4b21-b6fa-96ecdde04349" InformativeScreenshot="119200686be11b1734611abac1776639.png" Reference="D0nISARV7kG7gVzbwvUc9w/JmcUQM2IsUClAg8-KqTjUQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive" />
                     </uix:NExtractData.Target>
                   </uix:NExtractData>
-                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[Index]" DataTable="[TempDt]" DisplayName="Iterate Through Temp Data Table for Detailed Data Extraction" sap:VirtualizedContainerService.HintSize="529.6,3356" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="[Index]" DataTable="[dt_Temp]" DisplayName="Iterate Through Temp Data Table for Detailed Data Extraction" sap:VirtualizedContainerService.HintSize="529.6,3356" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
                     <ui:ForEachRow.Body>
                       <ActivityAction x:TypeArguments="sd:DataRow">
                         <ActivityAction.Argument>
@@ -195,7 +307,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <uix:NGoToUrl DisplayName="Navigate to URL" sap:VirtualizedContainerService.HintSize="433.6,114.4" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Url="[CurrentRow(&quot;URL&quot;).ToString]" Version="V3" />
-                          <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Scroll Down for Data Fetch" sap:VirtualizedContainerService.HintSize="433.6,168.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="8" Version="V3" />
+                          <uix:NMouseScroll KeyModifiers="{x:Null}" Direction="Down" DisplayName="Main Page Scroll Down for Data Fetch" sap:VirtualizedContainerService.HintSize="433.6,168.8" sap2010:WorkflowViewState.IdRef="NMouseScroll_3" InteractionMode="HardwareEvents" MovementUnits="8" Version="V3" />
                           <uix:NGetText DisplayName="Extract Name Information" sap:VirtualizedContainerService.HintSize="433.6,189.6" sap2010:WorkflowViewState.IdRef="NGetText_15" ScopeIdentifier="00158659-147e-4b59-af42-be53a80251f2" TextString="[Name]" Version="V3">
                             <uix:NGetText.Target>
                               <uix:TargetAnchorable BrowserURL="https://www.eijffinger.com/nl-NL/museum-307403" DesignTimeRectangle="434, 693, 331, 30" DesignTimeScaleFactor="1.25" ElementType="Text" FullSelectorArgument="&lt;webctrl class='Specs-value' tag='DIV' /&gt;" FuzzySelectorArgument="&lt;webctrl class='Specs-value' tag='DIV' type='' /&gt;" Guid="2fcb2e93-be92-4781-a47d-43565bed9bbe" InformativeScreenshot="94ef8289064507a9ba0cbf4782ce87e9.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - MUSEUM' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
@@ -370,13 +482,13 @@
                       </ActivityAction>
                     </ui:ForEachRow.Body>
                   </ui:ForEachRow>
-                  <ui:MergeDataTable Destination="[MainDt]" DisplayName="Merge temp Data Table to Main data table" sap:VirtualizedContainerService.HintSize="529.6,166.4" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[TempDt]" />
+                  <ui:MergeDataTable Destination="[dt_Main]" DisplayName="Merge temp Data Table to Main data table" sap:VirtualizedContainerService.HintSize="529.6,166.4" sap2010:WorkflowViewState.IdRef="MergeDataTable_2" MissingSchemaAction="Add" Source="[dt_Temp]" />
                   <uix:NGoToUrl DisplayName="Navigate to Next Page" sap:VirtualizedContainerService.HintSize="529.6,105.6" sap2010:WorkflowViewState.IdRef="NGoToUrl_3" Url="[&quot;https://www.eijffinger.com/nl-NL/behang?pagenumber=&quot;&amp;1+DoWhileIndex+1]" Version="V3" />
                 </Sequence>
               </ui:InterruptibleDoWhile.Body>
             </ui:InterruptibleDoWhile>
-            <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[MainDt]" DisplayName="Write MainDt to Workbook (.xlsx)" sap:VirtualizedContainerService.HintSize="625.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Sheet1" WorkbookPath="C:\Users\Bhavesh\Downloads\image\websitedata.xlsx" />
-            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="625.6,110.4" sap2010:WorkflowViewState.IdRef="MessageBox_3" Text="[&quot;This is done&quot;]" />
+            <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Main]" DisplayName="Write MainDt to Workbook (.xlsx)" sap:VirtualizedContainerService.HintSize="625.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet1" WorkbookPath="C:\Users\Bhavesh\Downloads\image\websitedata.xlsx" />
+            <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="625.6,110.4" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;This is done&quot;]" />
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
