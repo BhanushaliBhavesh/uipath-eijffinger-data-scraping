@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="kAXEeXeoY0CxizNNVoDCKg" Reference="D0nISARV7kG7gVzbwvUc9w/JmcUQM2IsUClAg8-KqTjUQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ObjectRepositoryTargetData ContentHash="4spjIJ6DwE2hKi8Y0EKtXQ" Reference="D0nISARV7kG7gVzbwvUc9w/JmcUQM2IsUClAg8-KqTjUQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://www.eijffinger.com/nl-NL/behang" DesignTimeRectangle="415, 812, 1437, 3251" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl class='ProductGrid' tag='DIV' /&gt;" Guid="b60a1d99-2f2f-4b21-b6fa-96ecdde04349" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-      <imageRef attrName="InformativeScreenshot" originalValue="119200686be11b1734611abac1776639.png" xmlns="">0Xpvgv9Axy0Gd73Ebbpq-UA</imageRef>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="https://www.eijffinger.com/nl-NL/behang?pagenumber=1" ContentHash="NZC-04WNqEOCoZywYWSw9w" DesignTimeRectangle="415, -3123, 1437, 3171" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl class='ProductGrid' tag='DIV' /&gt;" Guid="410f0346-687f-47f7-8844-d97f8a98e649" Reference="D0nISARV7kG7gVzbwvUc9w/JmcUQM2IsUClAg8-KqTjUQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Eijffinger - Behang - Eijffinger | Decorating the world' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c087ca844ec0ec166499c6e75bf2e470.png" xmlns="">0Ap9XgrGQiEmnFI79Y_IFQg</imageRef>
     </TargetAnchorable>
     <x:String x:Key="ActivityType">ExtractData</x:String>
     <p:InArgument x:TypeArguments="x:String" x:Key="ExtractDataSettings" xml:space="preserve">&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Structured' AddCvHeader='true' IsScrollEnabled='false'&gt;
@@ -13,17 +13,17 @@
 		&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;
 		&lt;Format xsi:type='TextColumnFormat' /&gt;
 	&lt;/Column&gt;
-	&lt;Column xsi:type='DataColumn' ReferenceName='Column2' Name='Name'&gt;
+	&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='ImgUrl'&gt;
 		&lt;IsValidName&gt;true&lt;/IsValidName&gt;
 		&lt;ValidationErrorMessage /&gt;
 		&lt;IsExtra&gt;true&lt;/IsExtra&gt;
 		&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;
 		&lt;Format xsi:type='TextColumnFormat' /&gt;
 	&lt;/Column&gt;
-	&lt;Column xsi:type='DataColumn' ReferenceName='Column4' Name='ImgUrl'&gt;
+	&lt;Column xsi:type='DataColumn' ReferenceName='Column0' Name='Name'&gt;
 		&lt;IsValidName&gt;true&lt;/IsValidName&gt;
 		&lt;ValidationErrorMessage /&gt;
-		&lt;IsExtra&gt;true&lt;/IsExtra&gt;
+		&lt;IsExtra&gt;false&lt;/IsExtra&gt;
 		&lt;CanExtractSimilar&gt;true&lt;/CanExtractSimilar&gt;
 		&lt;Format xsi:type='TextColumnFormat' /&gt;
 	&lt;/Column&gt;
