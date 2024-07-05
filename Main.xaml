@@ -270,7 +270,7 @@
                 </Sequence>
               </If.Else>
             </If>
-            <ui:InterruptibleDoWhile CurrentIndex="[DoWhileIndex]" DisplayName="Scrape Subpage Details with Pagination" sap:VirtualizedContainerService.HintSize="625.6,4221.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
+            <ui:InterruptibleDoWhile Condition="[DoWhileIndex &lt; 1]" CurrentIndex="[DoWhileIndex]" DisplayName="Scrape Subpage Details with Pagination" sap:VirtualizedContainerService.HintSize="625.6,4221.6" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_5">
               <ui:InterruptibleDoWhile.Body>
                 <Sequence DisplayName="Web Data Extraction from Main page" sap:VirtualizedContainerService.HintSize="592,4075.2" sap2010:WorkflowViewState.IdRef="Sequence_7">
                   <sap:WorkflowViewStateService.ViewState>
@@ -486,9 +486,6 @@
                   <uix:NGoToUrl DisplayName="Navigate to Next Page" sap:VirtualizedContainerService.HintSize="529.6,105.6" sap2010:WorkflowViewState.IdRef="NGoToUrl_3" Url="[&quot;https://www.eijffinger.com/nl-NL/behang?pagenumber=&quot;&amp;1+DoWhileIndex+1]" Version="V3" />
                 </Sequence>
               </ui:InterruptibleDoWhile.Body>
-              <ui:InterruptibleDoWhile.Condition>
-                <VisualBasicValue x:TypeArguments="x:Boolean" DisplayName="Visual basic value" ExpressionText="DoWhileIndex &lt; 1" />
-              </ui:InterruptibleDoWhile.Condition>
             </ui:InterruptibleDoWhile>
             <ui:WriteRange StartingCell="{x:Null}" AddHeaders="True" DataTable="[dt_Main]" DisplayName="Write MainDt to Workbook (.xlsx)" sap:VirtualizedContainerService.HintSize="625.6,148" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="Sheet1" WorkbookPath="C:\Users\Bhavesh\Downloads\image\websitedata.xlsx" />
             <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" DisplayName="Exit Message" sap:VirtualizedContainerService.HintSize="625.6,110.4" sap2010:WorkflowViewState.IdRef="MessageBox_10" Text="[&quot;This is done&quot;]" />
